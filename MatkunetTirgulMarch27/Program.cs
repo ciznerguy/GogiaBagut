@@ -139,11 +139,52 @@ namespace MatkunetTirgulMarch27
             }
         }
         
-         public static Queue<int> bet (Node<Queue<int>> myList)
+        //פעולה המקבלת מערך של שברים פשוטים
+        // הפעולה מחזירה את סכום המערך
+        // בסוף הפעולה המערך נותר ללא שינוי
+        public static Rational sumOfRationalArray(Rational[] arrRational)
+        {
+            Rational sum = new Rational(0,0);
+
+            for (int i=0; i<arrRational.Length;i++)
+            {
+                sum.Add(arrRational[i]);
+            }
+            return sum;
+        }
+
+        public static Rational minSumInList(Node<Rational[]> myList)
+
         {
 
+           
+            if (myList==null)
+            {
+                return new Rational(0,0);
+            }
+            Rational minSum = sumOfRationalArray(myList.GetValue());
+
+            myList = myList.GetNext();
+
+            while (myList!=null)
+            {
+                if (!minSum.IsLargerThan(sumOfRationalArray(myList.GetValue())))
+                      {
+                       minSum= sumOfRationalArray(myList.GetValue());
+
+                      }
+                myList = myList.GetNext();
+
+
+            }
+
+            return minSum;
+
+
+
+                
         }
-       
+
 
         static void Main(string[] args)
         {
@@ -170,7 +211,7 @@ namespace MatkunetTirgulMarch27
             Console.WriteLine(r1);
             Console.WriteLine(r1.IsLargerThan(new Rational (5,4)));*/
 
-
+            
         }
     }
 }

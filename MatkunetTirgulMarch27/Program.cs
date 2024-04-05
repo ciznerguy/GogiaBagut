@@ -170,7 +170,7 @@ namespace MatkunetTirgulMarch27
             Console.WriteLine(r1);
             Console.WriteLine(r1.IsLargerThan(new Rational (5,4)));*/
 
-
+            
         }
     }
 }
